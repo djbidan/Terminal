@@ -1,0 +1,5 @@
+# các lệnh và phím tắt cho Vim
+https://vim.rtorr.com/
+
+https://devhints.io/vim
+
