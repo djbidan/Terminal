@@ -1,16 +1,25 @@
-oh-my-posh init pwsh --config 'D:\OneDrive - MSFT\Documents\Backup_Setting\Powershell_PROFILE\paradox-bidan.omp.json' | Invoke-Expression
-
 Import-Module Terminal-Icons
+
+oh-my-posh init pwsh --config 'D:\OneDrive - MSFT\Documents\Backup_Setting\Powershell_PROFILE\paradox-bidan.omp.json' | Invoke-Expression
 
 # PSReadLine
 Import-Module PSReadLine
-Set-PSReadLineKeyhandler -Key Tab -function Complete
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
+# _______PSFzf__________
+	# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+h'
+	# example command - use $Location with a different command:
+$commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location }
+	# pass your override to PSFzf:
+Set-PsFzfOption -AltCCommand $commandOverride
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PsFzfOption -TabExpansion
+Set-PsFzfOption -EnableAlias*
 
 # Enhanced PowerShell Experience
 
@@ -54,13 +63,6 @@ function yt {
         [string]$URL,
         [string]$Destination = "D:\downloads"  # Thư mục mặc định là D:\download
     )
-
-    # Kiểm tra xem yt-dlp.exe có tồn tại không
-    if (-not (Test-Path "D:\yt-dlp\yt-dlp.exe")) {
-        Write-Host "Lỗi: Không tìm thấy yt-dlp.exe trong thư mục hiện tại." -ForegroundColor Red
-        return
-    }
-
     # Thực hiện tải video từ YouTube và lưu vào thư mục được chỉ định
     & "yt-dlp.exe" $URL -o "$Destination\%(title)s.%(ext)s" -f bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best
 }

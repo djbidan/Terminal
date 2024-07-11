@@ -5,32 +5,22 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#ffe9aa",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
-          "style": "powerline",
-          "template": " \uf2be ",
-          "type": "root"
-        },
-        {
-          "background": "#ffffff",
-          "foreground": "#100e23",
+          "background": "#222831",
+          "foreground": "#76ABAE",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
           "template": " {{ .UserName }} ",
           "type": "session"
         },
         {
-          "background": "#91ddff",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
+          "background": "#31363F",
+          "foreground": "#FFFFFF",
           "properties": {
-            "folder_icon": "\uf115",
-            "folder_separator_icon": " \ue0b1 ",
+            "folder_icon": "<#B5B2C2>\ue5fe </>",
             "style": "full"
           },
-          "style": "powerline",
-          "template": " {{ .Path }} ",
+          "style": "diamond",
+          "template": "<#f2f200> \ue5ff </>{{ .Path }} ",
           "type": "path"
         },
         {
