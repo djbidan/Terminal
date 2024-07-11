@@ -22,11 +22,17 @@ Hoặc
 `Install-Module -Name Terminal-Icons -Scope CurrentUser -Force`
 
 - Cài linh tinh 
+
 `scoop install lsd`
+
 ` winget install -e --id ajeetdsouza.zoxide`
+
 `scoop install btop`
+
 `winget install fzf`
+
 `Install-Module -Name PSFzf`
+
 `Install-Module PSEverything`
 
 
