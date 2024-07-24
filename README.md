@@ -36,6 +36,8 @@ Hoặc
 
 - Cài linh tinh 
 
+`Install-Module PSReadLine -Force`
+
 `scoop install lsd`
 
 ` winget install -e --id ajeetdsouza.zoxide`
