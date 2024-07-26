@@ -46,12 +46,12 @@
     {
         "defaults": 
         {
-            "colorScheme": "iTerm2 Default",
+            "colorScheme": "MaterialDesignColors",
             "cursorShape": "bar",
             "font": 
             {
                 "cellHeight": "1.2",
-                "face": "FiraCode Nerd Font",
+                "face": "JetBrainsMono Nerd Font",
                 "size": 11.0,
                 "weight": "normal"
             },
@@ -121,6 +121,29 @@
     "schemes": 
     [
         {
+            "background": "#131313",
+            "black": "#1F1F1F",
+            "blue": "#2A84D2",
+            "brightBlack": "#D6DBE5",
+            "brightBlue": "#1081D6",
+            "brightCyan": "#0F7DDB",
+            "brightGreen": "#1DD361",
+            "brightPurple": "#5350B9",
+            "brightRed": "#DE352E",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#F3BD09",
+            "cursorColor": "#B9B9B9",
+            "cyan": "#1081D6",
+            "foreground": "#D6DBE5",
+            "green": "#2DC55E",
+            "name": "Brogrammer",
+            "purple": "#4E5AB7",
+            "red": "#F81118",
+            "selectionBackground": "#1F1F1F",
+            "white": "#D6DBE5",
+            "yellow": "#ECBA0F"
+        },
+        {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
             "blue": "#0037DA",
@@ -167,27 +190,27 @@
             "yellow": "#C19C00"
         },
         {
-            "background": "#121212",
-            "black": "#121212",
-            "blue": "#0443FF",
-            "brightBlack": "#838383",
-            "brightBlue": "#0443FF",
-            "brightCyan": "#51CEFF",
-            "brightGreen": "#B1E05F",
-            "brightPurple": "#F200F6",
-            "brightRed": "#F6669D",
+            "background": "#1D262A",
+            "black": "#435B67",
+            "blue": "#37B6FF",
+            "brightBlack": "#A1B0B8",
+            "brightBlue": "#70CFFF",
+            "brightCyan": "#9AFFE6",
+            "brightGreen": "#ADF7BE",
+            "brightPurple": "#FC669B",
+            "brightRed": "#FC746D",
             "brightWhite": "#FFFFFF",
-            "brightYellow": "#FFF26D",
-            "cursorColor": "#FBFBFB",
-            "cyan": "#01B6ED",
-            "foreground": "#F9F9F9",
-            "green": "#98E123",
-            "name": "Monokai Vivid",
-            "purple": "#F800F8",
-            "red": "#FA2934",
-            "selectionBackground": "#FFFFFF",
+            "brightYellow": "#FEE16C",
+            "cursorColor": "#EAEAEA",
+            "cyan": "#59FFD1",
+            "foreground": "#E7EBED",
+            "green": "#5CF19E",
+            "name": "MaterialDesignColors",
+            "purple": "#FC226E",
+            "red": "#FC3841",
+            "selectionBackground": "#4E6A78",
             "white": "#FFFFFF",
-            "yellow": "#FFF30A"
+            "yellow": "#FED032"
         },
         {
             "background": "#282C34",

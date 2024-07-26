@@ -1,6 +1,8 @@
-Import-Module Terminal-Icons
 
 oh-my-posh init pwsh --config 'D:\OneDrive - MSFT\Documents\Backup_Setting\Powershell_PROFILE\paradox-bidan.omp.json' | Invoke-Expression
+
+#Terminal Icons
+Import-Module Terminal-Icons
 
 # PSReadLine
 Import-Module PSReadLine
@@ -11,7 +13,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # _______PSFzf__________
-	# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+	# replace 'Ctrl+t' and 'Ctrl+h' with your preferred bindings:
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+h'
 	# example command - use $Location with a different command:
 $commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location }
@@ -42,6 +44,7 @@ function Taotm {
 function la { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
 function ll { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
 
+Set-Alias -name 'ld' -value 'C:\Users\Bidanpc\scoop\shims\lsd.exe'
 
 # Network Utilities
 function Get-PubIP { (Invoke-WebRequest http://ifconfig.me/ip).Content }
@@ -58,13 +61,26 @@ function editprofile { start notepad++ $env:USERPROFILE\.config\powershell\user_
 # Toi Uu PC christitus
 function Chris { irm christitus.com/win | iex }
 # yt-dlp
-function yt {
+function tai {
     param(
         [string]$URL,
         [string]$Destination = "D:\downloads"  # Thư mục mặc định là D:\download
     )
     # Thực hiện tải video từ YouTube và lưu vào thư mục được chỉ định
-    & "yt-dlp.exe" $URL -o "$Destination\%(title)s.%(ext)s" -f bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best
+    & "yt-dlp.exe" $URL -o "$Destination\%(title)s.%(ext)s"
+}
+
+function taids($filePath) {
+    # Đọc các URL từ file
+    $urls = Get-Content $filePath
+
+    foreach ($url in $urls) {
+        # Xây dựng lệnh yt-dlp
+        $command = "yt-dlp --batch-file ""$filePath"" -o ""D:\Downloads\ytdlp\%(title)s.%(ext)s"""
+
+        # Thực thi lệnh yt-dlp
+        Invoke-Expression $command
+    }
 }
 
 # function wheseis
