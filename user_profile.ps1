@@ -54,7 +54,7 @@ function Kiemtracong { netstat -ano | findstr "ESTABLISHED" }
 
 # Notepad++
 Set-Alias -name 'npp' -value 'C:\Program Files\Notepad++\notepad++.exe'
-
+Set-Alias -name 'chrome' -value 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 # Edit profile
 function editprofile { start notepad++ $env:USERPROFILE\.config\powershell\user_profile.ps1 }
 
@@ -64,24 +64,54 @@ function Chris { irm christitus.com/win | iex }
 function tai {
     param(
         [string]$URL,
-        [string]$Destination = "D:\downloads"  # Thư mục mặc định là D:\download
+        [string]$Destination = "D:\Downloads\ytdlp"  # Thư mục mặc định là D:\download
     )
     # Thực hiện tải video từ YouTube và lưu vào thư mục được chỉ định
-    & "yt-dlp.exe" $URL -o "$Destination\%(title)s.%(ext)s"
+    & "yt-dlp.exe" $URL -o "$Destination\$(Get-Date -Format 'yyyy-MM-dd HH-mm').%(ext)s" -f 'bestvideo[ext=mp4][height>=720][height<=2160]+bestaudio[ext=m4a]/best[ext=mp4]/best'
 }
 
 function taids($filePath) {
-    # Đọc các URL từ file
     $urls = Get-Content $filePath
+    $counter = 1
 
     foreach ($url in $urls) {
-        # Xây dựng lệnh yt-dlp
-        $command = "yt-dlp --batch-file ""$filePath"" -o ""D:\Downloads\ytdlp\%(title)s.%(ext)s"""
+        # Lấy thông tin JSON của video
+        $jsonInfo = yt-dlp -j $url
+        $videoInfo = $jsonInfo | ConvertFrom-Json
 
-        # Thực thi lệnh yt-dlp
-        Invoke-Expression $command
+        # Lấy các thông tin cần thiết
+        $title = $videoInfo.title
+        $uploadDate = $videoInfo.upload_date
+        $formattedFilename = "${uploadDate}_${counter}.%(ext)s"
+
+        # Tải về video với chất lượng yêu cầu
+        yt-dlp -f 'bestvideo[ext=mp4][height>=720][height<=2160]+bestaudio[ext=m4a]/best[ext=mp4]/best' $url -o "D:\Downloads\ytdlp\$formattedFilename"
+
+        $counter++
     }
 }
+
+function taidsfull($filePath) {
+    $urls = Get-Content $filePath
+    $counter = 1
+
+    foreach ($url in $urls) {
+        # Lấy thông tin JSON của video
+        $jsonInfo = yt-dlp -j $url
+        $videoInfo = $jsonInfo | ConvertFrom-Json
+
+        # Lấy các thông tin cần thiết
+        $title = $videoInfo.title
+        $uploadDate = $videoInfo.upload_date
+        $formattedFilename = "${uploadDate}_${counter}.%(ext)s"
+
+        # Tải về video với chất lượng cao nhất
+        yt-dlp -f 'bestvideo+bestaudio/best' $url -o "D:\Downloads\ytdlp\$formattedFilename"
+
+        $counter++
+    }
+}
+
 
 # function wheseis
 function wheseis ($command) {
