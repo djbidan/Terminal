@@ -4,14 +4,6 @@
     {
       "alignment": "left",
      "segments": [
-         {
-          "background": "#29315A",
-          "foreground": "#3EC669",
-          "leading_diamond": "\ue0b6",
-          "style": "diamond",
-          "template": " {{ .UserName }} \ue70f",
-          "type": "session"
-        },
 		{
           "background": "#29315A",
           "foreground": "#3EC669",
@@ -20,7 +12,7 @@
             "style": "full"
           },
           "style": "diamond",
-          "template": "<#f2f200> \ue5ff </>{{ .Path }} ",
+          "template": "<#f2f200>\ue5ff </>{{ .Path }} ",
           "trailing_diamond": "\ue0b4",
           "type": "path"
         },

@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "C:/Program Files/Nilesoft Shell"
+		},
+		{
+			"path": "../../AutoHotkey"
+		},
+		{
+			"path": "C:/Users/Bidanpc/AppData/Roaming/Notepad++/userDefineLangs"
 		}
 	],
 	"settings": {}
